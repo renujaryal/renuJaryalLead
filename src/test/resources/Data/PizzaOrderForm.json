@@ -1,0 +1,21 @@
+{
+       "pizzaType":"//select[@id='pizza1Pizza']",
+       "pizzaToppingDropdown1":"//div[@id='pizza1']//select[@class='toppings1']",
+       "pizzaToppingDropdown2":"//div[@id='pizza1']//select[@class='toppings2']",
+       "pizza1Cost":"//input[@id='pizza1Cost']",
+       "pizza1Quantity":"//input[@id='pizza1Qty']",
+       "email":"//input[@id='email']",
+       "name":"//input[@id='name']",
+       "phone":"//input[@id='phone']",
+       "radioCreditCard":"//input[@id='ccpayment']",
+       "radioCash":"//input[@id='cashpayment']",
+       "placeOrderButton":"//button[@id='placeOrder']",
+       "resetButton":"//button[@id='reset']",
+       "dialog":"//div[contains(@class,'ui-dialog')]",
+       "dialogText":"*//div/p",
+       "closeDialog":"//button[contains(@class,'ui-button')]"
+	}
+
+      
+ 
+  

@@ -10,8 +10,6 @@ public class Configuration {
     private static final String CONFIG_FILE_NAME = "config.properties";
     private Properties configProperties;
 
-
-
     public Configuration() {
         loadProperties();
     }
