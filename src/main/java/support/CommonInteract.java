@@ -64,6 +64,7 @@ public class CommonInteract extends BasePage {
 		}
 		softAssert.assertAll();
 	}
+
 	public void selectElementByValue(String locator, String selectByValue)
 	{
 		Select byValue = new Select(driver.findElement(By.xpath(locator)));
@@ -77,6 +78,7 @@ public class CommonInteract extends BasePage {
 		}
 		softAssert.assertAll();
 	}
+
 	public void sendValuetoTextBox(String locator, String text, String inputboxText) throws InterruptedException
 	{
 		WebElement sendText = driver.findElement(By.xpath(locator));

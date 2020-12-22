@@ -13,7 +13,7 @@ public class PizzaOrderFormPage extends BasePage {
 
 	final static Logger logger = Logger.getLogger(PizzaOrderFormPage.class);
 	String isOnlyAlpa = "^[a-zA-Z]*$";
-	String isdigitreg = "^\\d+$";
+	String isValidPhoneNumber = "^\\d{10}$";
 	String emailaddressvalidation = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
 	String textMessageOnMissingPhoneNumber="Missing phone number";
 	String textMessageOnMissingName="Missing name";
@@ -49,10 +49,10 @@ public class PizzaOrderFormPage extends BasePage {
 		else
 		{
 			logger.info("name should be Aplhabets");
+			obj.sendValuetoTextBox(map.get("UserName"),name,"UserName"); 
 			softAssert.fail("name should be Aplhabets");
 		}		
 		Thread.sleep(2000);
-
 		if(email.matches(emailaddressvalidation))
 		{
 			obj.sendValuetoTextBox(map.get("EmailAddress"),email,"EmailAddress"); 
@@ -60,16 +60,18 @@ public class PizzaOrderFormPage extends BasePage {
 		else
 		{
 			logger.info("email format is wrong");
+			obj.sendValuetoTextBox(map.get("EmailAddress"),email,"EmailAddress"); 
 			softAssert.fail("email format is wrong");
 		}
-		if(phoneNumber.matches(isdigitreg))
+		if(phoneNumber.matches(isValidPhoneNumber))
 		{
 			obj.sendValuetoTextBox(map.get("PhoneNumber"),phoneNumber,"PhoneNumber");
 		}
 		else
 		{
-			logger.info("phone should be numeric");
-			softAssert.fail("phone should be numeric");
+			logger.info("phone should be numeric and not less/greater than 10 digit");
+			obj.sendValuetoTextBox(map.get("PhoneNumber"),phoneNumber,"PhoneNumber");
+			softAssert.fail("phone should be numeric and not less/greater than 10 digit");
 		}
 		Thread.sleep(4000);
 		obj.validateRadioButtonAndCheckbox(map.get("CreditCard"),"CreditCard");
@@ -101,6 +103,4 @@ public class PizzaOrderFormPage extends BasePage {
 		obj.clickElement(map.get("ResetButton"),"ResetButton");
 		softAssert.assertAll();
 	}
-
-
 }
